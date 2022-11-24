@@ -1,0 +1,49 @@
+#music{
+    background-color:blue;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    width: 70%;
+    overflow:hidden;
+    border-radius: 10px;
+    position:absolute;
+    transform:translateY(70%);
+}
+
+#capa{
+    width:100%;;
+}
+
+#controls{
+    width:100%;
+    background-color:yellow;
+    display:flex;
+    justify-content:space-evenly;
+    padding:3px;
+}
+
+#backward{
+    font-size:50px;
+}
+#backward:hover{
+    cursor:pointer;
+    transform:translateX(-5px);
+}
+
+#forward{
+    font-size:50px;
+}
+#forward:hover{
+    cursor:pointer;
+    transform:translateX(5px);
+}
+
+#action{
+    font-size:50px;
+}
+#action:hover{
+    cursor:pointer;
+    transform:scale(95%);
+}
+

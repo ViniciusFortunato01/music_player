@@ -1,0 +1,41 @@
+header{
+    width: 100%;
+    height:12%;
+    margin:0;
+    padding:0;
+    position:absolute;
+    top:0;
+    background-color:red;
+    display:flex;
+    justify-content:space-between;
+    overflow:hidden;
+}
+
+h1{
+    font-weight:700;
+    font-size:3.5em;
+    text-align:center;
+    text-shadow:2px 2px black;
+    color:white;
+    margin-left:50px;
+}
+
+#artLink{
+    display:flex;
+    background-color:blue;
+    height:100%;
+    width:10%;
+    justify-self:end;
+    justify-content:center;
+    align-items: center;
+}
+
+#artLink a{
+    color:white;
+    font-size:2em;
+    text-decoration:none;
+    text-shadow:1px 1px white;
+}
+#artLink a:hover{
+    transform:scale(110%);
+}
