@@ -29,11 +29,14 @@
         <div id="control-panel">
             <div id="controls">
                 <div id="inputs">
-                    <input type="number" id="contador" min="1" max="100" value="5">
-                    <input id="c-input">
-                    <br />
-                    <button class="button" id="generate-button" onclick="arte()">Gerar</button>
-                    <button class="button" id="clear-button">Limpar</button>
+                    <div id="caixinha">
+                        <input type="number" id="contador" min="1" max="100" value="5" placeholder="count">
+                        <input id="c-input" placeholder="var">
+                    </div>
+                    <div id="botoes">
+                        <button class="button" id="generate-button" onclick="arte()"><img src="./assets/img/gerar.png" height="100%"></button>
+                        <button class="button" id="clear-button"><img src="./assets/img/trash.png" height="100%" style="margin-left: 15px"></button>
+                    </div>
                 </div>
                 <div id="radio-buttons">
                     Algorítmos: <br />
