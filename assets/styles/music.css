@@ -1,5 +1,5 @@
 #music{
-    background-color:blue;
+    background-color:#1E90FF;
     display:flex;
     flex-direction:column;
     justify-content:center;
@@ -8,7 +8,7 @@
     overflow:hidden;
     border-radius: 10px;
     position:absolute;
-    transform:translateY(70%);
+    transform:translateY(100%);
 }
 
 #capa{
@@ -17,7 +17,7 @@
 
 #controls{
     width:100%;
-    background-color:yellow;
+    background-color:#228B22;
     display:flex;
     justify-content:space-evenly;
     padding:3px;

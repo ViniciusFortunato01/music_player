@@ -15,7 +15,7 @@
 <body>
     <header>
         <h1>Music Player BETA</h1>
-        <div id="artLink"><a href="./art.html">Gerar Artes</a></div>
+        <div id="artLink"><a href="./art.html"><img id="logo" src="./assets/img/logo2.png" alt=""></a></div>
     </header>
     <div id="music">
         <img id="capa" src="">
@@ -26,10 +26,11 @@
         </div>
         <div class="duração">
             <div class="barra">
-                <input type="range" name="timer" id="timer" min="0" max="100" onchange="mudou()" onsubmit="mudou()">
+                <input type="range" id="timer" min="0" max="100" value="0">
             </div>
             <div class="container">
                 <p class="inicio">00:00</p>
+                <b id="musicname">Nome</b>
                 <p class="fim">03:35</p>
             </div>
         </div>

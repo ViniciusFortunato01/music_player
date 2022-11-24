@@ -1,6 +1,8 @@
 .duração {
     width: 300px;
     margin-top: 25px;
+    display: flex;
+    flex-direction: column;
    }
    
    .progress{
@@ -16,18 +18,24 @@
     border-left: 35px;
     display: flex;
     align-items:center;
-    justify-content:space-between;
+    justify-content: space-around;
    }
 
-   .inicio, .fim{
+   .inicio, .fim, .musicname{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   }
+
+   .barra{
+    display: flex;
+    align-items: center;
+    justify-content: center;
    }
 
    #timer {
     appearance: none;
-    background: yellow;
+    background:#228B22;
     outline: none;
-    width: 100%;
+    width: 90%;
     height: 15px;
     border-radius: 9px;   
 }
@@ -38,7 +46,7 @@
   width: 15px;
   height: 15px;
   border-radius: 50%; 
-  background: #2796ee;
+  background: black;
   cursor: pointer;
 }
 
@@ -46,6 +54,6 @@
   width: 25px;
   height: 25px;
   border-radius: 50%; 
-  background: #2796ee;
+  background: black;
   cursor: pointer;
 }
