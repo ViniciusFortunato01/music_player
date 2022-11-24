@@ -3,6 +3,7 @@ var capa = document.getElementById('capa');
 var forward = document.getElementById('forward');
 var backward = document.getElementById('backward');
 var timer = document.getElementById('timer');
+
 var tocando = false;
 
 var player = {
@@ -40,22 +41,68 @@ var player = {
             });
         }
     },
+    backward(){
+        if(tocando){
+            let mudou = true;
+            player.musicas[player.atual].pause();
+            tocando = false;
+            action.classList = "fa-solid fa-circle-play";
+        }
+        if(mudou){
+            if(player.atual-1<0){
+                player.atual = player.capas.length-1;
+                player.playPause();
+            }else{
+                player.atual--;
+                player.playPause();
+            }        
+        }else{
+            if(player.atual-1<0){
+                player.atual = player.capas.length-1;
+            }else{
+                player.atual--;
+            }
+        }
+        capa.src = player.capas[player.atual];
+    },
+    forward(){
+        if(tocando){
+            let mudou = true;
+            player.musicas[player.atual].pause();
+            tocando = false;
+            action.classList = "fa-solid fa-circle-play";
+        }
+        if(mudou){
+            if(player.atual+1>player.capas.length-1){
+                player.atual = 0;
+                player.playPause()
+            }else{
+                player.atual++;
+                player.playPause()
+            }
+        }        
+        else{
+            if(player.atual+1>player.capas.length-1){
+                player.atual = 0;
+            }else{
+                player.atual++;
+            }
+        }
+        capa.src = player.capas[player.atual];
+        
+    },
+    roll(e){
+        console.log(e.target.value)
+    }
+
 }
 
 if(!tocando) player.playPause()
-forward.addEventListener('click', ()=> {
-    player.atual++;
-    capa.src = player.capas[player.atual];
-});
-backward.addEventListener('click', ()=>{
-    player.atual--;
-    capa.src = player.capas[player.atual];
-});
-
-function mudou(){
-    console.log(timer.value);
-}
+forward.addEventListener('click', player.forward);
+backward.addEventListener('click', player.backward);
+timer.addEventListener('change', player.roll);
 
 capa.src = player.capas[player.atual];
+timer.max = player.musicas[player.atual].duration;
 
-
+console.log(player.musicas[player.atual].duration);
