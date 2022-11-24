@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Julia set generator</title>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+          tex2jax: {
+            inlineMath: [['$','$'], ['\\(','\\)']],
+            processEscapes: true
+          },
+          menuSettings:{
+              zoom:"Click",
+              zscale:"200%"
+            }
+        });
+    </script>
+    <link rel="stylesheet" href="./assets/styles/julia.css">
+</head>
+<body>
+    <a href="./index.html"><-</a>
+    <h1>Gere artes aleatoriamente!!</h1>
+
+    <div class='container'>
+        <canvas class='mandel-canvas' style="display:none"></canvas>
+        <canvas class='julia-canvas'></canvas>
+        <div id="control-panel">
+            <div id="controls">
+                <div id="inputs">
+                    <input type="number" id="contador" min="1" max="100" value="5">
+                    <input id="c-input">
+                    <br />
+                    <button class="button" id="generate-button" onclick="arte()">Gerar</button>
+                    <button class="button" id="clear-button">Limpar</button>
+                </div>
+                <div id="radio-buttons">
+                    Algorítmos: <br />
+                    <input class="radio" type="radio" name="algorithm" value="inverse_iteration" checked>
+                    Iteração inversa: <br />
+                    <input class="radio" type="radio" name="algorithm" value="escape_time">
+                    Escape time:
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.13.1/math.min.js"></script>
+    <script src="./assets/javascript/JuliaSetApp.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@100;400;700&display=swap');
+
+body{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-size:10px;
+    font-family:'Roboto', sans-serif;
+    background-color:black;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+@media(min-width:800px){
+    #music{
+        transform:translateY(65%);
+        width:50%;
+    }
+}
