@@ -23,24 +23,17 @@
     padding:3px;
 }
 
-#backward{
-    font-size:50px;
+#backward, #forward, #action{
+    font-size:60px;
 }
+
 #backward:hover{
     cursor:pointer;
     transform:translateX(-5px);
 }
-
-#forward{
-    font-size:50px;
-}
 #forward:hover{
     cursor:pointer;
     transform:translateX(5px);
-}
-
-#action{
-    font-size:50px;
 }
 #action:hover{
     cursor:pointer;

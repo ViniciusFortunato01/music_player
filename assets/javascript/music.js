@@ -3,6 +3,9 @@ var capa = document.getElementById('capa');
 var forward = document.getElementById('forward');
 var backward = document.getElementById('backward');
 var timer = document.getElementById('timer');
+var fim = document.querySelector('.fim');
+var inicio = document.querySelector('.inicio');
+var mscName = document.getElementById('musicname');
 
 var tocando = false;
 
@@ -24,13 +27,36 @@ var player = {
         'https://th.bing.com/th/id/OIP.S-VwoTmP26Un6dLqryWdkgHaFk?pid=ImgDet&amp;rs'
     
     ],
+    nomes:[
+        "Blinding Lights",
+        "Lonely",
+        "Goosebumps",
+        "??",
+        "Hollywood's Bleeding"
+    ],
+    artistas:[
+        "The Weeknd",
+        "Akon",
+        "Travis Scott",
+        "??",
+        "Post Malone"
+    ],
     playPause(){
         if(!tocando){
             action.classList = "fa-solid fa-circle-play";
             action.addEventListener('click', ()=>{
+                roll()
+                this.musicas[this.atual].currentTime = timer.value;
                 this.musicas[this.atual].play();
                 tocando = true;
                 action.classList = "fa-solid fa-circle-pause";
+                var interval = setInterval(()=>{
+                    if(tocando){
+                        timer.value++
+                        inicio.innerText = timer.value+"s"
+                    }
+                    else clearInterval(interval)
+                }, 1000)
                 if(tocando){
                     action.addEventListener('click', ()=>{
                        this.musicas[this.atual].pause();
@@ -43,7 +69,7 @@ var player = {
     },
     backward(){
         if(tocando){
-            let mudou = true;
+            var mudou = true;
             player.musicas[player.atual].pause();
             tocando = false;
             action.classList = "fa-solid fa-circle-play";
@@ -55,7 +81,7 @@ var player = {
             }else{
                 player.atual--;
                 player.playPause();
-            }        
+            }      
         }else{
             if(player.atual-1<0){
                 player.atual = player.capas.length-1;
@@ -63,11 +89,15 @@ var player = {
                 player.atual--;
             }
         }
+        roll();
         capa.src = player.capas[player.atual];
+        mscName.innerText = player.nomes[player.atual];
+        timer.value = 0;
     },
     forward(){
+        var mudou = false;
         if(tocando){
-            let mudou = true;
+            mudou = true;
             player.musicas[player.atual].pause();
             tocando = false;
             action.classList = "fa-solid fa-circle-play";
@@ -88,21 +118,27 @@ var player = {
                 player.atual++;
             }
         }
+        roll();
         capa.src = player.capas[player.atual];
-        
-    },
-    roll(e){
-        console.log(e.target.value)
+        mscName.innerText = player.nomes[player.atual];
+        timer.value = 0;
     }
-
 }
 
 if(!tocando) player.playPause()
 forward.addEventListener('click', player.forward);
 backward.addEventListener('click', player.backward);
-timer.addEventListener('change', player.roll);
 
 capa.src = player.capas[player.atual];
-timer.max = player.musicas[player.atual].duration;
+mscName.innerText = player.nomes[player.atual];
+roll();
 
-console.log(player.musicas[player.atual].duration);
+function roll(valor){
+    player.musicas[player.atual].load()
+    player.musicas[player.atual].setAttribute("preload", "metadata");
+    player.musicas[player.atual].onloadedmetadata = function() {
+        timer.max = player.musicas[player.atual].duration;
+        fim.innerText = Math.round(player.musicas[player.atual].duration)+"s";
+
+    };
+}
